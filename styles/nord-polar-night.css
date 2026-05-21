@@ -1,0 +1,140 @@
+/*
+  Nord Polar Night Theme for md-to-pdf
+  A clean, muted, and professional dark mode stylesheet inspired by the Nord palette.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #2e3440;
+  --text-color: #d8dee9;
+  --heading-color: #eceff4;
+  --accent-color: #88c0d0;
+  --muted-color: #4c566a;
+  --border-color: #434c5e;
+  --code-bg: #3b4252;
+  --blockquote-bg: #3b4252;
+  --link-color: #8fbcbb;
+}
+
+/* Ensure background covers the full width since we set side margins to 0 in config */
+html, body {
+  background-color: var(--bg-color) !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  margin: 0;
+}
+
+body {
+  color: var(--text-color);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 11pt;
+  /* 
+     Side padding handles the margins on every page. 
+     Top/Bottom margins are handled by the header/footer templates in the config. 
+  */
+  padding: 0 15mm; 
+}
+
+body > :first-child {
+  margin-top: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.5em; border-bottom: 2px solid var(--border-color); padding-bottom: 0.3em; }
+h2 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.2em; }
+h3 { font-size: 1.4em; }
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background-color: var(--code-bg) !important;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  -webkit-print-color-adjust: exact;
+}
+
+pre {
+  background-color: var(--code-bg) !important;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  -webkit-print-color-adjust: exact;
+}
+
+pre code {
+  background-color: transparent !important;
+  padding: 0;
+}
+
+/* Syntax Highlighting Support */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0.5em 1.5em;
+  border-left: 4px solid var(--accent-color);
+  background-color: var(--blockquote-bg);
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  color: var(--heading-color);
+  font-weight: 600;
+  background-color: #3b4252;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1.5em auto;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid var(--border-color);
+  margin: 2em 0;
+}
+
+/* Print-specific tweaks */
+@media print {
+  html, body {
+    background-color: var(--bg-color) !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
