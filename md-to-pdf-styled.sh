@@ -9,20 +9,44 @@
 #                 Defaults to nord-polar-night.
 #     $@ (AdditionalArgs): Any additional arguments passed to the script.
 
-if [ -z "$1" ]; then
+# Initialize variables
+FILE_PATH=""
+STYLE="nord-polar-night"
+ADDITIONAL_ARGS=()
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -p|--path)
+            FILE_PATH="$2"
+            shift 2
+            ;;
+        -s|--style)
+            STYLE="$2"
+            shift 2
+            ;;
+        *)
+            # If FILE_PATH is not set, treat the first positional arg as Path
+            if [[ -z "$FILE_PATH" ]]; then
+                FILE_PATH="$1"
+                shift
+            # If STYLE is not set (and is still default), treat the second positional arg as Style
+            elif [[ "$STYLE" == "nord-polar-night" ]]; then
+                STYLE="$1"
+                shift
+            else
+                ADDITIONAL_ARGS+=("$1")
+                shift
+            fi
+            ;;
+    esac
+done
+
+if [[ -z "$FILE_PATH" ]]; then
     echo "Error: Missing mandatory parameter 'Path'."
     echo "Usage: $0 <Path> [Style] [AdditionalArgs...]"
+    echo "   or: $0 --path <Path> [--style <Style>] [AdditionalArgs...]"
     exit 1
-fi
-
-FILE_PATH="$1"
-STYLE="${2:-nord-polar-night}"
-
-# Shift arguments to capture additional args in $@
-if [ $# -ge 2 ]; then
-    shift 2
-else
-    shift 1
 fi
 
 # Get the directory where the script is located
@@ -50,4 +74,4 @@ NC='\033[0m' # No Color
 echo -e "${CYAN}Generating PDF using $STYLE theme...${NC}"
 
 # Execute md-to-pdf
-md-to-pdf "$FILE_PATH" --config-file "$CONFIG_PATH" --stylesheet "$STYLE_PATH" "$@"
+md-to-pdf "$FILE_PATH" --config-file "$CONFIG_PATH" --stylesheet "$STYLE_PATH" "${ADDITIONAL_ARGS[@]}"
