@@ -6,7 +6,7 @@
     The path to the markdown file to convert.
 
 .PARAMETER Style
-    The name of the theme to use (e.g., nord-polar-night). 
+    The name of the theme to use (e.g., nord-polar-night).
     Requires corresponding .css and .config.js files in the styles subdirectory.
     Defaults to nord-polar-night.
 
