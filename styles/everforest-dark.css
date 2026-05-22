@@ -1,0 +1,154 @@
+/*
+  Everforest Dark Theme for md-to-pdf
+  A warm and soft dark theme designed for comfort.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #2d353b;
+  --text-color: #d3c6aa;
+  --heading-color: #a7c080;
+  --accent-color: #d699b6;
+  --muted-color: #859289;
+  --border-color: #3d484d;
+  --code-bg: #343f44;
+  --blockquote-bg: #343f44;
+  --link-color: #7fbbb3;
+}
+
+html, body {
+  background-color: var(--bg-color) !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  margin: 0;
+}
+
+body {
+  color: var(--text-color);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 11pt;
+  padding: 0 15mm; 
+}
+
+body > :first-child {
+  margin-top: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.5em; border-bottom: 2px solid var(--border-color); padding-bottom: 0.3em; }
+h2 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.2em; }
+h3 { font-size: 1.4em; }
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background-color: var(--code-bg) !important;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  -webkit-print-color-adjust: exact;
+}
+
+pre {
+  background-color: var(--code-bg) !important;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid var(--border-color);
+  -webkit-print-color-adjust: exact;
+}
+
+pre code {
+  background-color: transparent !important;
+  padding: 0;
+}
+
+/* Syntax Highlighting */
+code.hljs, pre code.hljs { color: #d3c6aa !important; }
+.hljs-comment { color: #859289 !important; font-style: italic !important; }
+.hljs-keyword { color: #e67e80 !important; }
+.hljs-built_in { color: #d699b6 !important; }
+.hljs-type { color: #dbbc7f !important; }
+.hljs-literal { color: #e69875 !important; }
+.hljs-number { color: #e69875 !important; }
+.hljs-operator { color: #7fbbb3 !important; }
+.hljs-punctuation { color: #d3c6aa !important; }
+.hljs-property { color: #a7c080 !important; }
+.hljs-string { color: #a7c080 !important; }
+.hljs-variable { color: #d3c6aa !important; }
+.hljs-title { color: #7fbbb3 !important; }
+.hljs-title.function_ { color: #7fbbb3 !important; }
+.hljs-params { color: #d3c6aa !important; }
+.hljs-attr { color: #e69875 !important; }
+.hljs-attribute { color: #a7c080 !important; }
+.hljs-tag { color: #e67e80 !important; }
+.hljs-name { color: #e67e80 !important; }
+.hljs-section { color: #a7c080 !important; font-weight: bold !important; }
+.hljs-addition { color: #a7c080 !important; background: rgba(167, 192, 128, 0.15) !important; }
+.hljs-deletion { color: #e67e80 !important; background: rgba(230, 126, 128, 0.15) !important; }
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 0.5em 1.5em;
+  border-left: 4px solid var(--accent-color);
+  background-color: var(--blockquote-bg);
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  color: var(--heading-color);
+  font-weight: 600;
+  background-color: var(--code-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1.5em auto;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid var(--border-color);
+  margin: 2em 0;
+}
+
+@media print {
+  html, body {
+    background-color: var(--bg-color) !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
