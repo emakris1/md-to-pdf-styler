@@ -85,10 +85,49 @@ pre code {
 }
 
 /* Syntax Highlighting Support */
-.hljs {
+pre code.hljs {
   background: transparent !important;
   padding: 0 !important;
 }
+
+code.hljs, pre code.hljs, .hljs-subst { color: var(--text-color) !important; }
+.hljs-selector-tag { color: #81a1c1 !important; }
+.hljs-selector-id { color: #8fbcbb !important; font-weight: bold !important; }
+.hljs-selector-class { color: #8fbcbb !important; }
+.hljs-selector-attr { color: #8fbcbb !important; }
+.hljs-property { color: #88c0d0 !important; }
+.hljs-selector-pseudo { color: #88c0d0 !important; }
+.hljs-addition { background-color: rgba(163, 190, 140, 0.5) !important; }
+.hljs-deletion { background-color: rgba(191, 97, 106, 0.5) !important; }
+.hljs-built_in, .hljs-type { color: #8fbcbb !important; }
+.hljs-class { color: #8fbcbb !important; }
+.hljs-function { color: #88c0d0 !important; }
+.hljs-title.hljs-function, .hljs-function > .hljs-title { color: #88c0d0 !important; }
+.hljs-keyword, .hljs-literal, .hljs-symbol { color: #81a1c1 !important; }
+.hljs-number { color: #b48ead !important; }
+.hljs-regexp { color: #ebcb8b !important; }
+.hljs-string { color: #a3be8c !important; }
+.hljs-title, .hljs-title.function_ { color: #8fbcbb !important; }
+.hljs-params { color: var(--text-color) !important; }
+.hljs-bullet { color: #81a1c1 !important; }
+.hljs-code { color: #8fbcbb !important; }
+.hljs-emphasis { font-style: italic !important; }
+.hljs-formula { color: #8fbcbb !important; }
+.hljs-strong { font-weight: bold !important; }
+.hljs-link:hover { text-decoration: underline !important; }
+.hljs-quote { color: var(--muted-color) !important; }
+.hljs-comment { color: var(--muted-color) !important; }
+.hljs-doctag { color: #8fbcbb !important; }
+.hljs-meta, .hljs-meta .hljs-keyword { color: #5e81ac !important; }
+.hljs-meta .hljs-string { color: #a3be8c !important; }
+.hljs-attr { color: #8fbcbb !important; }
+.hljs-attribute { color: var(--text-color) !important; }
+.hljs-name { color: #81a1c1 !important; }
+.hljs-section { color: #88c0d0 !important; }
+.hljs-tag { color: #81a1c1 !important; }
+.hljs-variable, .hljs-variable.language_ { color: var(--text-color) !important; }
+.hljs-template-variable { color: var(--text-color) !important; }
+.hljs-template-tag { color: #5e81ac !important; }
 
 blockquote {
   margin: 1.5em 0;

@@ -87,10 +87,57 @@ pre code {
 }
 
 /* Syntax Highlighting Support */
-.hljs {
+pre code.hljs {
   background: transparent !important;
   padding: 0 !important;
 }
+
+code.hljs,
+pre code.hljs,
+.hljs-subst { color: #4c4f69 !important; }
+.hljs-keyword { color: #8839ef !important; }
+.hljs-built_in { color: #d20f39 !important; }
+.hljs-type { color: #df8e1d !important; }
+.hljs-literal { color: #fe640b !important; }
+.hljs-number { color: #fe640b !important; }
+.hljs-operator { color: #04a5e5 !important; }
+.hljs-punctuation { color: #5c5f77 !important; }
+.hljs-property { color: #179299 !important; }
+.hljs-regexp { color: #ea76cb !important; }
+.hljs-string { color: #40a02b !important; }
+.hljs-char.escape_ { color: #40a02b !important; }
+.hljs-subst { color: #6c6f85 !important; }
+.hljs-symbol { color: #dd7878 !important; }
+.hljs-variable { color: #8839ef !important; }
+.hljs-variable.language_ { color: #8839ef !important; }
+.hljs-variable.constant_ { color: #fe640b !important; }
+.hljs-title,
+.hljs-title.function_ { color: #1e66f5 !important; }
+.hljs-params { color: #4c4f69 !important; }
+.hljs-comment { color: #7c7f93 !important; }
+.hljs-doctag { color: #d20f39 !important; }
+.hljs-meta { color: #fe640b !important; }
+.hljs-section { color: #1e66f5 !important; }
+.hljs-tag { color: #179299 !important; }
+.hljs-name { color: #8839ef !important; }
+.hljs-attr { color: #1e66f5 !important; }
+.hljs-attribute { color: #40a02b !important; }
+.hljs-bullet { color: #179299 !important; }
+.hljs-code { color: #40a02b !important; }
+.hljs-emphasis { color: #d20f39 !important; font-style: italic !important; }
+.hljs-strong { color: #d20f39 !important; font-weight: bold !important; }
+.hljs-formula { color: #179299 !important; }
+.hljs-link { color: #209fb5 !important; font-style: italic !important; }
+.hljs-quote { color: #40a02b !important; font-style: italic !important; }
+.hljs-selector-tag { color: #df8e1d !important; }
+.hljs-selector-id { color: #1e66f5 !important; }
+.hljs-selector-class { color: #179299 !important; }
+.hljs-selector-attr { color: #8839ef !important; }
+.hljs-selector-pseudo { color: #179299 !important; }
+.hljs-template-tag { color: #dd7878 !important; }
+.hljs-template-variable { color: #dd7878 !important; }
+.hljs-addition { color: #40a02b !important; background: rgba(64, 160, 43, 0.15) !important; }
+.hljs-deletion { color: #d20f39 !important; background: rgba(210, 15, 57, 0.15) !important; }
 
 blockquote {
   margin: 1.5em 0;
