@@ -75,6 +75,8 @@ pre {
   padding: 1em;
   border-radius: 8px;
   overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   border: 1px solid var(--border-color);
   -webkit-print-color-adjust: exact;
 }
