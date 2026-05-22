@@ -9,9 +9,19 @@
 #                 Defaults to nord-polar-night.
 #     $@ (AdditionalArgs): Any additional arguments passed to the script.
 
+# Get the directory where the script is located, resolving symlinks
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
 # Initialize variables
 FILE_PATH=""
 STYLE="nord-polar-night"
+STYLE_SET=false
 ADDITIONAL_ARGS=()
 
 # Parse arguments
@@ -22,17 +32,29 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         -s|--style)
-            STYLE="$2"
+            # Only set if the value is not empty
+            if [[ -n "$2" ]]; then
+                STYLE="$2"
+                STYLE_SET=true
+            fi
             shift 2
             ;;
+        -*)
+            # Any other flag goes to additional args
+            ADDITIONAL_ARGS+=("$1")
+            shift
+            ;;
         *)
-            # If FILE_PATH is not set, treat the first positional arg as Path
+            # Positional arguments
             if [[ -z "$FILE_PATH" ]]; then
                 FILE_PATH="$1"
                 shift
-            # If STYLE is not set (and is still default), treat the second positional arg as Style
-            elif [[ "$STYLE" == "nord-polar-night" ]]; then
-                STYLE="$1"
+            elif [[ "$STYLE_SET" == false ]]; then
+                # Only set style if the argument is not empty
+                if [[ -n "$1" ]]; then
+                    STYLE="$1"
+                    STYLE_SET=true
+                fi
                 shift
             else
                 ADDITIONAL_ARGS+=("$1")
@@ -49,8 +71,11 @@ if [[ -z "$FILE_PATH" ]]; then
     exit 1
 fi
 
-# Get the directory where the script is located
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Final fallback for STYLE
+if [[ -z "$STYLE" ]]; then
+    STYLE="nord-polar-night"
+fi
+
 STYLES_DIR="$SCRIPT_DIR/styles"
 CONFIG_PATH="$STYLES_DIR/$STYLE.config.js"
 STYLE_PATH="$STYLES_DIR/$STYLE.css"

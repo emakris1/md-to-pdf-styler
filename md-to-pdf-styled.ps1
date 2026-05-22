@@ -29,6 +29,11 @@ param(
     $AdditionalArgs
 )
 
+# Fallback for Style if empty string is provided
+if ([string]::IsNullOrWhiteSpace($Style)) {
+    $Style = "nord-polar-night"
+}
+
 $StylesDir = Join-Path $PSScriptRoot "styles"
 $ConfigPath = Join-Path $StylesDir "$Style.config.js"
 $StylePath = Join-Path $StylesDir "$Style.css"
