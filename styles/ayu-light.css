@@ -1,10 +1,3 @@
-/*
-  Ayu Light Theme for md-to-pdf
-  A clean, bright light theme.
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
 :root {
   --bg-color: #fcfcfc;
   --text-color: #5c6166;
@@ -15,140 +8,26 @@
   --code-bg: #f5f5f5;
   --blockquote-bg: #f5f5f5;
   --link-color: #55b4d4;
-}
 
-html, body {
-  background-color: var(--bg-color) !important;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-  margin: 0;
-}
-
-body {
-  color: var(--text-color);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  font-size: 11pt;
-  padding: 0 15mm; 
-}
-
-body > :first-child {
-  margin-top: 0 !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-weight: 700;
-}
-
-h1 { font-size: 2.5em; border-bottom: 2px solid var(--border-color); padding-bottom: 0.3em; }
-h2 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.2em; }
-h3 { font-size: 1.4em; }
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  background-color: var(--code-bg) !important;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.9em;
-  -webkit-print-color-adjust: exact;
-}
-
-pre {
-  background-color: var(--code-bg) !important;
-  padding: 1em;
-  border-radius: 8px;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  border: 1px solid var(--border-color);
-  -webkit-print-color-adjust: exact;
-}
-
-pre code {
-  background-color: transparent !important;
-  padding: 0;
-}
-
-/* Syntax Highlighting */
-code.hljs, pre code.hljs { color: #5c6166 !important; }
-.hljs-comment { color: #abb0b6 !important; font-style: italic !important; }
-.hljs-keyword { color: #ff7733 !important; }
-.hljs-built_in { color: #f29718 !important; }
-.hljs-type { color: #399ee6 !important; }
-.hljs-literal { color: #a37acc !important; }
-.hljs-number { color: #4cbf99 !important; }
-.hljs-operator { color: #ed9366 !important; }
-.hljs-punctuation { color: #5c6166 !important; }
-.hljs-property { color: #f29718 !important; }
-.hljs-string { color: #86b300 !important; }
-.hljs-variable { color: #5c6166 !important; }
-.hljs-title { color: #f29718 !important; }
-.hljs-title.function_ { color: #f29718 !important; }
-.hljs-params { color: #5c6166 !important; }
-.hljs-attr { color: #f29718 !important; }
-.hljs-attribute { color: #86b300 !important; }
-.hljs-tag { color: #55b4d4 !important; }
-.hljs-name { color: #55b4d4 !important; }
-.hljs-section { color: #f29718 !important; font-weight: bold !important; }
-.hljs-addition { color: #86b300 !important; background: rgba(134, 179, 0, 0.15) !important; }
-.hljs-deletion { color: #f07178 !important; background: rgba(240, 113, 120, 0.15) !important; }
-
-blockquote {
-  margin: 1.5em 0;
-  padding: 0.5em 1.5em;
-  border-left: 4px solid var(--accent-color);
-  background-color: var(--blockquote-bg);
-  color: var(--muted-color);
-  font-style: italic;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-}
-
-th, td {
-  text-align: left;
-  padding: 0.75em;
-  border-bottom: 1px solid var(--border-color);
-}
-
-th {
-  color: var(--heading-color);
-  font-weight: 600;
-  background-color: var(--code-bg);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 1.5em auto;
-}
-
-hr {
-  border: 0;
-  border-top: 2px solid var(--border-color);
-  margin: 2em 0;
-}
-
-@media print {
-  html, body {
-    background-color: var(--bg-color) !important;
-    -webkit-print-color-adjust: exact;
-  }
+  /* Syntax Highlighting */
+  --syntax-text: #5c6166;
+  --syntax-comment: #abb0b6;
+  --syntax-keyword: #ff7733;
+  --syntax-built_in: #f29718;
+  --syntax-type: #399ee6;
+  --syntax-literal: #a37acc;
+  --syntax-number: #4cbf99;
+  --syntax-operator: #ed9366;
+  --syntax-punctuation: #5c6166;
+  --syntax-property: #f29718;
+  --syntax-string: #86b300;
+  --syntax-variable: #5c6166;
+  --syntax-title: #f29718;
+  --syntax-attr: #f29718;
+  --syntax-attribute: #86b300;
+  --syntax-tag: #55b4d4;
+  --syntax-name: #55b4d4;
+  --syntax-section: #f29718;
+  --syntax-addition: #86b300;
+  --syntax-deletion: #f07178;
 }

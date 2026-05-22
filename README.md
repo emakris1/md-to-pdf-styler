@@ -1,56 +1,103 @@
-# Markdown to PDF Styler
-Modern, visually interesting stylesheets for use with [md-to-pdf](https://github.com/simonhaenisch/md-to-pdf) along with convenient helper scripts for bootstrapping your `md-to-pdf` calls to use them.
+# md-to-pdf-styler
 
-## Using the Helper Scripts
+A robust, cross-platform collection of modern themes and helper scripts for `md-to-pdf`. Generate beautiful, professionally styled PDFs from Markdown with ease.
 
-For convenience, helper scripts are provided to run the generation with the required arguments for utilizing the configs and stylesheets automatically.
-They default to the `nord-polar-night` theme.
+## Features
 
-### PowerShell (Windows)
-```powershell
-# Basic usage (defaults to Nord Polar Night)
-.\md-to-pdf-styled.ps1 my-document.md
-
-# Specify a different style (e.g., Nord Snow Storm)
-.\md-to-pdf-styled.ps1 my-document.md nord-snow-storm
-
-# Using named parameters
-.\md-to-pdf-styled.ps1 -Path my-document.md -Style catppuccin-mocha
-
-# Passing additional arguments (e.g., watch mode)
-.\md-to-pdf-styled.ps1 my-document.md catppuccin-latte --watch
-```
-
-### Bash (Linux/macOS)
-```bash
-# Basic usage (defaults to Nord Polar Night)
-./md-to-pdf-styled.sh my-document.md
-
-# Specify a different style (e.g., Nord Snow Storm)
-./md-to-pdf-styled.sh my-document.md nord-snow-storm
-
-# Using named parameters
-./md-to-pdf-styled.sh --path my-document.md --style catppuccin-mocha
-
-# Passing additional arguments
-./md-to-pdf-styled.sh my-document.md catppuccin-latte --watch
-```
-
-## Manual Usage
-
-To manually generate a PDF using these styles with `md-to-pdf` directly, use the following command structure:
-```
-md-to-pdf <markdown-file> --config-file "styles/<theme-name>.config.js" --stylesheet "styles/<theme-name>.css"
-```
+- **16+ Modern Themes**: Includes popular palettes like Tokyo Night, Catppuccin, Nord, Everforest, and more.
+- **Cross-Platform Support**: Robust Bash and PowerShell helper scripts.
+- **Header/Footer Integration**: Automatic color-matching for PDF headers and footers.
+- **Syntax Highlighting**: Pre-configured styles for common code blocks.
+- **DRY Architecture**: Shared base styles and configurations for easy maintenance and extension.
+- **Testing Suite**: Quick verification of all themes against a sample document.
 
 ## Available Themes
 
-All available themes are located in the `styles/` directory.
-Each theme consists of a `.css` file for styling and a `.config.js` file for engine-level configuration (header/footer templates).
+| Theme Family | Dark Variant(s) | Light Variant(s) |
+| :--- | :--- | :--- |
+| **Tokyo Night** | `tokyo-night` | `tokyo-day` |
+| **Rosé Pine** | `rose-pine` | `rose-pine-dawn` |
+| **Everforest** | `everforest-dark` | `everforest-light` |
+| **Kanagawa** | `kanagawa-wave` | `kanagawa-lotus` |
+| **Ayu** | `ayu-dark` | `ayu-light` |
+| **Catppuccin** | `catppuccin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato` | `catppuccin-latte` |
+| **Nord** | `nord-polar-night` | `nord-snow-storm` |
 
-### Adding Custom Themes
-The helper scripts can use any theme provided you create two files in the `styles` directory:
-1.  `theme-name.css`: The stylesheet.
-2.  `theme-name.config.js`: The configuration file.
+## Prerequisites
 
-Once created, you can use it with: `./md-to-pdf-styled.sh doc.md theme-name`.
+- [Node.js](https://nodejs.org/)
+- [md-to-pdf](https://www.npmjs.com/package/md-to-pdf) installed globally:
+  ```bash
+  npm install -g md-to-pdf
+  ```
+
+## Usage
+
+### PowerShell (Windows)
+The script supports both named and positional parameters.
+
+**Default (Nord Polar Night):**
+```powershell
+.\md-to-pdf-styled.ps1 .\my-doc.md
+```
+
+**Positional Parameters:**
+```powershell
+.\md-to-pdf-styled.ps1 .\my-doc.md tokyo-night
+```
+
+**Named Parameters:**
+```powershell
+.\md-to-pdf-styled.ps1 -Path .\my-doc.md -Style kanagawa-wave
+```
+
+**Additional Arguments to `md-to-pdf` (e.g., watch mode):**
+```powershell
+.\md-to-pdf-styled.ps1 .\my-doc.md tokyo-night --watch
+```
+
+### Bash (macOS/Linux)
+The script supports flags and positional arguments.
+
+**Default (Nord Polar Night):**
+```bash
+./md-to-pdf-styled.sh my-doc.md
+```
+
+**Positional Arguments:**
+```bash
+./md-to-pdf-styled.sh my-doc.md tokyo-night
+```
+
+**Named Flags:**
+```bash
+./md-to-pdf-styled.sh --path my-doc.md --style everforest-dark
+```
+
+**Additional Arguments to `md-to-pdf` (e.g., watch mode):**
+```bash
+./md-to-pdf-styled.sh my-doc.md tokyo-night --watch
+```
+
+
+## Testing Themes
+To see how all themes look, you can run the provided test suite:
+
+### PowerShell (Windows)
+```powershell
+.\test\test_themes.ps1
+```
+
+### Bash (macOS/Linux)
+```bash
+./test/test_themes.sh
+```
+
+This will generate a sample PDF for every theme in `test/pdfs/` using the `test/test.md` file.
+
+## Customization
+
+To add a new theme:
+1. Create a new CSS file in `styles/` (e.g., `my-theme.css`) and define the required `:root` variables.
+2. Create a corresponding `.config.js` file (see existing themes for the 3-line template).
+3. The helper scripts will automatically pick up the new theme.

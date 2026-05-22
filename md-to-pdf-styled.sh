@@ -99,4 +99,4 @@ NC='\033[0m' # No Color
 echo -e "${CYAN}Generating PDF using $STYLE theme...${NC}"
 
 # Execute md-to-pdf
-md-to-pdf "$FILE_PATH" --config-file "$CONFIG_PATH" --stylesheet "$STYLE_PATH" "${ADDITIONAL_ARGS[@]}"
+md-to-pdf "$FILE_PATH" --config-file "$CONFIG_PATH" "${ADDITIONAL_ARGS[@]}"

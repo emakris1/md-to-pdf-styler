@@ -18,10 +18,14 @@ fi
 
 echo "Starting theme tests..."
 
-# Iterate through all .css files in the styles directory
+# Iterate through all .css files in the styles directory (excluding base.css)
 for theme_file in "$STYLES_DIR"/*.css; do
     # Get the theme name by removing path and extension
     theme_name=$(basename "$theme_file" .css)
+    
+    if [[ "$theme_name" == "base" ]]; then
+        continue
+    fi
 
     echo "Testing theme: $theme_name"
 

@@ -55,8 +55,7 @@ Write-Host "Generating PDF using $Style theme..." -ForegroundColor Cyan
 # Prepare the command array
 $cmdArgs = @(
     $Path,
-    "--config-file", $ConfigPath,
-    "--stylesheet", $StylePath
+    "--config-file", $ConfigPath
 )
 # Append any additional arguments passed to the script
 if ($AdditionalArgs) {

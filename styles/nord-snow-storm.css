@@ -1,179 +1,33 @@
-/*
-  Nord Snow Storm Theme for md-to-pdf
-  A modern, soft, and readable light mode stylesheet inspired by the Nord palette.
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
 :root {
-  --bg-color: #eceff4;      /* Nord Snow Storm - light gray background */
-  --text-color: #2e3440;    /* Nord Polar Night - dark text */
-  --heading-color: #3b4252; /* Nord Polar Night - slightly lighter headings */
-  --accent-color: #5e81ac;  /* Nord Frost - blue accent */
-  --muted-color: #4c566a;   /* Nord Polar Night - muted text */
-  --border-color: #d8dee9;  /* Nord Snow Storm - subtle borders */
-  --code-bg: #d8dee9;       /* Nord Snow Storm - code background (Nord 4) */
-  --blockquote-bg: #d8dee9; /* Nord Snow Storm - blockquote background (Nord 4) */
-  --link-color: #81a1c1;    /* Nord Frost - soft blue links */
-}
+  --bg-color: #eceff4;
+  --text-color: #2e3440;
+  --heading-color: #3b4252;
+  --accent-color: #5e81ac;
+  --muted-color: #4c566a;
+  --border-color: #d8dee9;
+  --code-bg: #d8dee9;
+  --blockquote-bg: #d8dee9;
+  --link-color: #81a1c1;
 
-html, body {
-  background-color: var(--bg-color) !important;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-  margin: 0;
-}
-
-body {
-  color: var(--text-color);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  font-size: 11pt;
-  padding: 0 15mm;
-}
-
-body > :first-child {
-  margin-top: 0 !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-  font-weight: 700;
-}
-
-h1 { font-size: 2.5em; border-bottom: 2px solid var(--border-color); padding-bottom: 0.3em; }
-h2 { font-size: 1.8em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.2em; }
-h3 { font-size: 1.4em; }
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: var(--accent-color);
-}
-
-code {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  background-color: var(--code-bg) !important;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: #bf616a; /* Nord Aurora - subtle red for inline code */
-  -webkit-print-color-adjust: exact;
-}
-
-pre {
-  background-color: var(--code-bg) !important;
-  padding: 1em;
-  border-radius: 8px;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  border: 1px solid var(--border-color);
-  -webkit-print-color-adjust: exact;
-}
-
-pre code {
-  background-color: transparent !important;
-  padding: 0;
-  color: var(--text-color);
-}
-
-/* Syntax Highlighting Support */
-pre code.hljs {
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-code.hljs, pre code.hljs, .hljs-subst { color: var(--text-color) !important; }
-.hljs-selector-tag { color: #81a1c1 !important; }
-.hljs-selector-id { color: #8fbcbb !important; font-weight: bold !important; }
-.hljs-selector-class { color: #8fbcbb !important; }
-.hljs-selector-attr { color: #8fbcbb !important; }
-.hljs-property { color: #88c0d0 !important; }
-.hljs-selector-pseudo { color: #88c0d0 !important; }
-.hljs-addition { background-color: rgba(163, 190, 140, 0.5) !important; }
-.hljs-deletion { background-color: rgba(191, 97, 106, 0.5) !important; }
-.hljs-built_in, .hljs-type { color: #8fbcbb !important; }
-.hljs-class { color: #8fbcbb !important; }
-.hljs-function { color: #88c0d0 !important; }
-.hljs-title.hljs-function, .hljs-function > .hljs-title { color: #88c0d0 !important; }
-.hljs-keyword, .hljs-literal, .hljs-symbol { color: #81a1c1 !important; }
-.hljs-number { color: #b48ead !important; }
-.hljs-regexp { color: #ebcb8b !important; }
-.hljs-string { color: #a3be8c !important; }
-.hljs-title, .hljs-title.function_ { color: #8fbcbb !important; }
-.hljs-params { color: var(--text-color) !important; }
-.hljs-bullet { color: #81a1c1 !important; }
-.hljs-code { color: #8fbcbb !important; }
-.hljs-emphasis { font-style: italic !important; }
-.hljs-formula { color: #8fbcbb !important; }
-.hljs-strong { font-weight: bold !important; }
-.hljs-link:hover { text-decoration: underline !important; }
-.hljs-quote { color: var(--muted-color) !important; }
-.hljs-comment { color: var(--muted-color) !important; }
-.hljs-doctag { color: #8fbcbb !important; }
-.hljs-meta, .hljs-meta .hljs-keyword { color: #5e81ac !important; }
-.hljs-meta .hljs-string { color: #a3be8c !important; }
-.hljs-attr { color: #8fbcbb !important; }
-.hljs-attribute { color: var(--text-color) !important; }
-.hljs-name { color: #81a1c1 !important; }
-.hljs-section { color: #88c0d0 !important; }
-.hljs-tag { color: #81a1c1 !important; }
-.hljs-variable, .hljs-variable.language_ { color: var(--text-color) !important; }
-.hljs-template-variable { color: var(--text-color) !important; }
-.hljs-template-tag { color: #5e81ac !important; }
-
-blockquote {
-  margin: 1.5em 0;
-  padding: 0.5em 1.5em;
-  border-left: 4px solid var(--accent-color);
-  background-color: var(--blockquote-bg);
-  color: var(--muted-color);
-  font-style: italic;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-}
-
-th, td {
-  text-align: left;
-  padding: 0.75em;
-  border-bottom: 1px solid var(--border-color);
-}
-
-th {
-  color: var(--heading-color);
-  font-weight: 600;
-  background-color: #d8dee9;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 1.5em auto;
-}
-
-hr {
-  border: 0;
-  border-top: 2px solid var(--border-color);
-  margin: 2em 0;
-}
-
-/* Print-specific tweaks */
-@media print {
-  html, body {
-    background-color: var(--bg-color) !important;
-    -webkit-print-color-adjust: exact;
-  }
+  /* Syntax Highlighting */
+  --syntax-text: #2e3440;
+  --syntax-comment: #4c566a;
+  --syntax-keyword: #81a1c1;
+  --syntax-built_in: #8fbcbb;
+  --syntax-type: #8fbcbb;
+  --syntax-literal: #81a1c1;
+  --syntax-number: #b48ead;
+  --syntax-operator: #88c0d0;
+  --syntax-punctuation: #2e3440;
+  --syntax-property: #88c0d0;
+  --syntax-string: #a3be8c;
+  --syntax-variable: #2e3440;
+  --syntax-title: #8fbcbb;
+  --syntax-attr: #8fbcbb;
+  --syntax-attribute: #2e3440;
+  --syntax-tag: #81a1c1;
+  --syntax-name: #81a1c1;
+  --syntax-section: #88c0d0;
+  --syntax-addition: #a3be8c;
+  --syntax-deletion: #bf616a;
 }

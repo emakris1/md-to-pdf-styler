@@ -20,8 +20,8 @@ if (-not (Test-Path $TestMd)) {
 
 Write-Host "Starting theme tests..." -ForegroundColor Green
 
-# Get all theme names from .css files
-$Themes = Get-ChildItem -Path $StylesDir -Filter "*.css" | Select-Object -ExpandProperty BaseName
+# Get all theme names from .css files (excluding base.css)
+$Themes = Get-ChildItem -Path $StylesDir -Filter "*.css" | Where-Object { $_.BaseName -ne "base" } | Select-Object -ExpandProperty BaseName
 
 foreach ($Theme in $Themes) {
     Write-Host "Testing theme: $Theme" -ForegroundColor Cyan
