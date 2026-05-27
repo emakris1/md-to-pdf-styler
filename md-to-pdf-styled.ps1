@@ -34,7 +34,23 @@ if ([string]::IsNullOrWhiteSpace($Style)) {
     $Style = "nord-polar-night"
 }
 
-$StylesDir = Join-Path $PSScriptRoot "styles"
+# Resolve symbolic link to find the actual script directory
+$ActualScriptPath = $PSCommandPath
+$Item = Get-Item $ActualScriptPath
+while ($Item.LinkType -eq "SymbolicLink") {
+    $Target = $Item.LinkTarget
+    if (-not $Target) {
+        $Target = $Item.Target
+    }
+    if (-not [System.IO.Path]::IsPathRooted($Target)) {
+        $Target = Join-Path (Split-Path $Item.FullName) $Target
+    }
+    $ActualScriptPath = $Target
+    $Item = Get-Item $ActualScriptPath
+}
+$RealScriptRoot = Split-Path $ActualScriptPath
+
+$StylesDir = Join-Path $RealScriptRoot "styles"
 $ConfigPath = Join-Path $StylesDir "$Style.config.js"
 $StylePath = Join-Path $StylesDir "$Style.css"
 
