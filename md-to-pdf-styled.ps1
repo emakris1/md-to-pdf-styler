@@ -23,6 +23,35 @@ param(
     [string]$Path,
 
     [Parameter(Position=1)]
+    [ArgumentCompleter({
+        param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameters)
+
+        # Resolve the real script directory, following symlinks, the same
+        # way the script itself does further down.
+        $ActualScriptPath = $CommandAst.Extent.File
+        if (-not $ActualScriptPath) {
+            $ActualScriptPath = $PSCommandPath
+        }
+        $Item = Get-Item $ActualScriptPath -ErrorAction SilentlyContinue
+        while ($Item -and $Item.LinkType -eq "SymbolicLink") {
+            $Target = $Item.LinkTarget
+            if (-not $Target) {
+                $Target = $Item.Target
+            }
+            if (-not [System.IO.Path]::IsPathRooted($Target)) {
+                $Target = Join-Path (Split-Path $Item.FullName) $Target
+            }
+            $ActualScriptPath = $Target
+            $Item = Get-Item $ActualScriptPath -ErrorAction SilentlyContinue
+        }
+        $StylesDir = Join-Path (Split-Path $ActualScriptPath) "styles"
+
+        Get-ChildItem -Path $StylesDir -Filter "*.config.js" -File -ErrorAction SilentlyContinue |
+            ForEach-Object { $_.Name -replace '\.config\.js$', '' } |
+            Where-Object { $_ -ne "base" -and $_ -like "$WordToComplete*" } |
+            Sort-Object |
+            ForEach-Object { [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_) }
+    })]
     [string]$Style = "nord-polar-night",
 
     [Parameter(ValueFromRemainingArguments=$true)]
